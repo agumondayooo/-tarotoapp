@@ -1,0 +1,1506 @@
+[
+  {
+    "id": "major_00",
+    "name": "愚者",
+    "nameEn": "The Fool",
+    "arcana": "major",
+    "suit": null,
+    "number": 0,
+    "keywords": {
+      "upright": [
+        "自由",
+        "無邪気",
+        "冒険"
+      ],
+      "reversed": [
+        "無謀",
+        "軽率",
+        "迷走"
+      ]
+    }
+  },
+  {
+    "id": "major_01",
+    "name": "魔術師",
+    "nameEn": "The Magician",
+    "arcana": "major",
+    "suit": null,
+    "number": 1,
+    "keywords": {
+      "upright": [
+        "創造",
+        "意志",
+        "技量"
+      ],
+      "reversed": [
+        "欺瞞",
+        "未熟",
+        "空回り"
+      ]
+    }
+  },
+  {
+    "id": "major_02",
+    "name": "女教皇",
+    "nameEn": "The High Priestess",
+    "arcana": "major",
+    "suit": null,
+    "number": 2,
+    "keywords": {
+      "upright": [
+        "直感",
+        "静寂",
+        "洞察"
+      ],
+      "reversed": [
+        "秘密",
+        "猜疑",
+        "無理解"
+      ]
+    }
+  },
+  {
+    "id": "major_03",
+    "name": "女帝",
+    "nameEn": "The Empress",
+    "arcana": "major",
+    "suit": null,
+    "number": 3,
+    "keywords": {
+      "upright": [
+        "豊穣",
+        "愛情",
+        "受容"
+      ],
+      "reversed": [
+        "過保護",
+        "怠惰",
+        "浪費"
+      ]
+    }
+  },
+  {
+    "id": "major_04",
+    "name": "皇帝",
+    "nameEn": "The Emperor",
+    "arcana": "major",
+    "suit": null,
+    "number": 4,
+    "keywords": {
+      "upright": [
+        "支配",
+        "安定",
+        "責任"
+      ],
+      "reversed": [
+        "独裁",
+        "頑固",
+        "傲慢"
+      ]
+    }
+  },
+  {
+    "id": "major_05",
+    "name": "教皇",
+    "nameEn": "The Hierophant",
+    "arcana": "major",
+    "suit": null,
+    "number": 5,
+    "keywords": {
+      "upright": [
+        "伝統",
+        "助言",
+        "信頼"
+      ],
+      "reversed": [
+        "束縛",
+        "形式主義",
+        "孤立"
+      ]
+    }
+  },
+  {
+    "id": "major_06",
+    "name": "恋人",
+    "nameEn": "The Lovers",
+    "arcana": "major",
+    "suit": null,
+    "number": 6,
+    "keywords": {
+      "upright": [
+        "選択",
+        "共鳴",
+        "結合"
+      ],
+      "reversed": [
+        "誘惑",
+        "不和",
+        "優柔不断"
+      ]
+    }
+  },
+  {
+    "id": "major_07",
+    "name": "戦車",
+    "nameEn": "The Chariot",
+    "arcana": "major",
+    "suit": null,
+    "number": 7,
+    "keywords": {
+      "upright": [
+        "前進",
+        "勝利",
+        "克己"
+      ],
+      "reversed": [
+        "暴走",
+        "敗北",
+        "停滞"
+      ]
+    }
+  },
+  {
+    "id": "major_08",
+    "name": "力",
+    "nameEn": "Strength",
+    "arcana": "major",
+    "suit": null,
+    "number": 8,
+    "keywords": {
+      "upright": [
+        "忍耐",
+        "勇気",
+        "調和"
+      ],
+      "reversed": [
+        "臆病",
+        "短気",
+        "消耗"
+      ]
+    }
+  },
+  {
+    "id": "major_09",
+    "name": "隠者",
+    "nameEn": "The Hermit",
+    "arcana": "major",
+    "suit": null,
+    "number": 9,
+    "keywords": {
+      "upright": [
+        "探求",
+        "内省",
+        "沈黙"
+      ],
+      "reversed": [
+        "孤独",
+        "閉鎖",
+        "頑迷"
+      ]
+    }
+  },
+  {
+    "id": "major_10",
+    "name": "運命の輪",
+    "nameEn": "Wheel of Fortune",
+    "arcana": "major",
+    "suit": null,
+    "number": 10,
+    "keywords": {
+      "upright": [
+        "転機",
+        "好機",
+        "循環"
+      ],
+      "reversed": [
+        "暗転",
+        "空転",
+        "悪縁"
+      ]
+    }
+  },
+  {
+    "id": "major_11",
+    "name": "正義",
+    "nameEn": "Justice",
+    "arcana": "major",
+    "suit": null,
+    "number": 11,
+    "keywords": {
+      "upright": [
+        "均衡",
+        "公正",
+        "清算"
+      ],
+      "reversed": [
+        "不正",
+        "偏り",
+        "報い"
+      ]
+    }
+  },
+  {
+    "id": "major_12",
+    "name": "吊るされた男",
+    "nameEn": "The Hanged Man",
+    "arcana": "major",
+    "suit": null,
+    "number": 12,
+    "keywords": {
+      "upright": [
+        "試練",
+        "献身",
+        "転換"
+      ],
+      "reversed": [
+        "徒労",
+        "犠牲",
+        "膠着"
+      ]
+    }
+  },
+  {
+    "id": "major_13",
+    "name": "死神",
+    "nameEn": "Death",
+    "arcana": "major",
+    "suit": null,
+    "number": 13,
+    "keywords": {
+      "upright": [
+        "終焉",
+        "再生",
+        "断絶"
+      ],
+      "reversed": [
+        "未練",
+        "停滞",
+        "腐敗"
+      ]
+    }
+  },
+  {
+    "id": "major_14",
+    "name": "節制",
+    "nameEn": "Temperance",
+    "arcana": "major",
+    "suit": null,
+    "number": 14,
+    "keywords": {
+      "upright": [
+        "調和",
+        "節度",
+        "浄化"
+      ],
+      "reversed": [
+        "過剰",
+        "不均衡",
+        "放縦"
+      ]
+    }
+  },
+  {
+    "id": "major_15",
+    "name": "悪魔",
+    "nameEn": "The Devil",
+    "arcana": "major",
+    "suit": null,
+    "number": 15,
+    "keywords": {
+      "upright": [
+        "誘惑",
+        "執着",
+        "欲望"
+      ],
+      "reversed": [
+        "解放",
+        "覚醒",
+        "断ち切り"
+      ]
+    }
+  },
+  {
+    "id": "major_16",
+    "name": "塔",
+    "nameEn": "The Tower",
+    "arcana": "major",
+    "suit": null,
+    "number": 16,
+    "keywords": {
+      "upright": [
+        "崩壊",
+        "衝撃",
+        "啓示"
+      ],
+      "reversed": [
+        "延命",
+        "瓦解",
+        "自壊"
+      ]
+    }
+  },
+  {
+    "id": "major_17",
+    "name": "星",
+    "nameEn": "The Star",
+    "arcana": "major",
+    "suit": null,
+    "number": 17,
+    "keywords": {
+      "upright": [
+        "希望",
+        "導き",
+        "霊感"
+      ],
+      "reversed": [
+        "失望",
+        "幻滅",
+        "見失い"
+      ]
+    }
+  },
+  {
+    "id": "major_18",
+    "name": "月",
+    "nameEn": "The Moon",
+    "arcana": "major",
+    "suit": null,
+    "number": 18,
+    "keywords": {
+      "upright": [
+        "幻惑",
+        "不安",
+        "潜在"
+      ],
+      "reversed": [
+        "露見",
+        "晴明",
+        "覚醒"
+      ]
+    }
+  },
+  {
+    "id": "major_19",
+    "name": "太陽",
+    "nameEn": "The Sun",
+    "arcana": "major",
+    "suit": null,
+    "number": 19,
+    "keywords": {
+      "upright": [
+        "成功",
+        "生命力",
+        "祝福"
+      ],
+      "reversed": [
+        "陰り",
+        "遅延",
+        "慢心"
+      ]
+    }
+  },
+  {
+    "id": "major_20",
+    "name": "審判",
+    "nameEn": "Judgement",
+    "arcana": "major",
+    "suit": null,
+    "number": 20,
+    "keywords": {
+      "upright": [
+        "復活",
+        "召命",
+        "決着"
+      ],
+      "reversed": [
+        "後悔",
+        "未決",
+        "呪縛"
+      ]
+    }
+  },
+  {
+    "id": "major_21",
+    "name": "世界",
+    "nameEn": "The World",
+    "arcana": "major",
+    "suit": null,
+    "number": 21,
+    "keywords": {
+      "upright": [
+        "完成",
+        "到達",
+        "統合"
+      ],
+      "reversed": [
+        "未完",
+        "停滞",
+        "閉塞"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_01",
+    "name": "杖のエース",
+    "nameEn": "Ace of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 1,
+    "keywords": {
+      "upright": [
+        "情熱の火種",
+        "衝動",
+        "好機"
+      ],
+      "reversed": [
+        "不発",
+        "気力の枯渇"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_02",
+    "name": "杖の2",
+    "nameEn": "Two of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 2,
+    "keywords": {
+      "upright": [
+        "未来への計画",
+        "分岐点の決断",
+        "野心"
+      ],
+      "reversed": [
+        "迷い",
+        "行動の先延ばし"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_03",
+    "name": "杖の3",
+    "nameEn": "Three of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 3,
+    "keywords": {
+      "upright": [
+        "展望の拡大",
+        "船出",
+        "協力者との連携"
+      ],
+      "reversed": [
+        "連携の不和",
+        "遅れる進展"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_04",
+    "name": "杖の4",
+    "nameEn": "Four of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 4,
+    "keywords": {
+      "upright": [
+        "祝祭",
+        "帰還の安らぎ",
+        "築いた基盤"
+      ],
+      "reversed": [
+        "祝いの中断",
+        "帰る場のなさ"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_05",
+    "name": "杖の5",
+    "nameEn": "Five of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 5,
+    "keywords": {
+      "upright": [
+        "競争心",
+        "衝突",
+        "鍛錬の場"
+      ],
+      "reversed": [
+        "対立の緩和",
+        "和解への糸口"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_06",
+    "name": "杖の6",
+    "nameEn": "Six of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 6,
+    "keywords": {
+      "upright": [
+        "勝利の凱旋",
+        "称賛",
+        "自信の高まり"
+      ],
+      "reversed": [
+        "過信への執着",
+        "評価への停滞"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_07",
+    "name": "杖の7",
+    "nameEn": "Seven of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 7,
+    "keywords": {
+      "upright": [
+        "守りの姿勢",
+        "粘り強い抵抗",
+        "策を練る余地"
+      ],
+      "reversed": [
+        "防戦の露呈",
+        "気力の挫折"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_08",
+    "name": "杖の8",
+    "nameEn": "Eight of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 8,
+    "keywords": {
+      "upright": [
+        "加速する情熱",
+        "迅速な行動力",
+        "勢いの支配"
+      ],
+      "reversed": [
+        "性急さの解放",
+        "無駄な浪費"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_09",
+    "name": "杖の9",
+    "nameEn": "Nine of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 9,
+    "keywords": {
+      "upright": [
+        "最後の踏ん張り",
+        "警戒と重圧",
+        "経験による備え"
+      ],
+      "reversed": [
+        "燃え尽きる悪夢",
+        "気力の枯渇"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_10",
+    "name": "杖の10",
+    "nameEn": "Ten of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 10,
+    "keywords": {
+      "upright": [
+        "重荷を背負う情熱",
+        "使命の完遂",
+        "過剰な負担"
+      ],
+      "reversed": [
+        "崩れ落ちる責務",
+        "肩の重荷"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_11",
+    "name": "杖のペイジ",
+    "nameEn": "Page of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 11,
+    "keywords": {
+      "upright": [
+        "情熱の兆し",
+        "冒険への学び",
+        "好奇心"
+      ],
+      "reversed": [
+        "向こう見ずな未熟",
+        "軽率な行動"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_12",
+    "name": "杖のナイト",
+    "nameEn": "Knight of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 12,
+    "keywords": {
+      "upright": [
+        "猛進する行動力",
+        "情熱の使者",
+        "冒険への出立"
+      ],
+      "reversed": [
+        "暴走する衝動",
+        "焦りによる遅延"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_13",
+    "name": "杖のクイーン",
+    "nameEn": "Queen of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 13,
+    "keywords": {
+      "upright": [
+        "情熱を包む温かさ",
+        "行動的な感受性",
+        "魅力の求心力"
+      ],
+      "reversed": [
+        "情熱への依存",
+        "冷める熱意"
+      ]
+    }
+  },
+  {
+    "id": "minor_wand_14",
+    "name": "杖のキング",
+    "nameEn": "King of Wands",
+    "arcana": "minor",
+    "suit": "wand",
+    "number": 14,
+    "keywords": {
+      "upright": [
+        "行動を統べる支配力",
+        "情熱の熟達",
+        "リーダーの器"
+      ],
+      "reversed": [
+        "専横な号令",
+        "頑なな硬直"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_01",
+    "name": "杯のエース",
+    "nameEn": "Ace of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 1,
+    "keywords": {
+      "upright": [
+        "愛の萌芽",
+        "満ちる感情",
+        "新しい絆の好機"
+      ],
+      "reversed": [
+        "満たされぬ想い",
+        "感情の空回り"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_02",
+    "name": "杯の2",
+    "nameEn": "Two of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 2,
+    "keywords": {
+      "upright": [
+        "心の均衡",
+        "結びつきの選択",
+        "相思相愛"
+      ],
+      "reversed": [
+        "心のすれ違い",
+        "決めかねる想い"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_03",
+    "name": "杯の3",
+    "nameEn": "Three of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 3,
+    "keywords": {
+      "upright": [
+        "喜びの分かち合い",
+        "友情の展開",
+        "祝杯"
+      ],
+      "reversed": [
+        "感情の不和",
+        "祝いの先送り"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_04",
+    "name": "杯の4",
+    "nameEn": "Four of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 4,
+    "keywords": {
+      "upright": [
+        "穏やかな安定",
+        "感情の休息",
+        "内省の時間"
+      ],
+      "reversed": [
+        "愛情の倦怠",
+        "無関心の停滞"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_05",
+    "name": "杯の5",
+    "nameEn": "Five of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 5,
+    "keywords": {
+      "upright": [
+        "喪失の悲嘆",
+        "感情の闘い",
+        "こぼれた想い"
+      ],
+      "reversed": [
+        "悲しみからの回復",
+        "関係の和解"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_06",
+    "name": "杯の6",
+    "nameEn": "Six of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 6,
+    "keywords": {
+      "upright": [
+        "懐かしい調和",
+        "純粋な追憶",
+        "優しい再会"
+      ],
+      "reversed": [
+        "過去への執着",
+        "郷愁の停滞"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_07",
+    "name": "杯の7",
+    "nameEn": "Seven of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 7,
+    "keywords": {
+      "upright": [
+        "夢想の模索",
+        "多彩な選択肢",
+        "心を惑わす策略"
+      ],
+      "reversed": [
+        "幻想の露見",
+        "理想への挫折"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_08",
+    "name": "杯の8",
+    "nameEn": "Eight of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 8,
+    "keywords": {
+      "upright": [
+        "満たされぬ心の力量",
+        "感情からの束縛",
+        "新たな道を探す想い"
+      ],
+      "reversed": [
+        "未練からの解放",
+        "感情の浪費"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_09",
+    "name": "杯の9",
+    "nameEn": "Nine of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 9,
+    "keywords": {
+      "upright": [
+        "満足の成熟",
+        "願いの充足",
+        "心の重圧からの解放"
+      ],
+      "reversed": [
+        "自己満足の悪夢",
+        "喜びの枯渇"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_10",
+    "name": "杯の10",
+    "nameEn": "Ten of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 10,
+    "keywords": {
+      "upright": [
+        "幸福の完成",
+        "家族の絆",
+        "溢れる喜び"
+      ],
+      "reversed": [
+        "理想の崩壊",
+        "幸福への重荷"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_11",
+    "name": "杯のペイジ",
+    "nameEn": "Page of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 11,
+    "keywords": {
+      "upright": [
+        "感受性の兆し",
+        "夢見る学び",
+        "純粋な想い"
+      ],
+      "reversed": [
+        "未熟な空想",
+        "感情的な軽率"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_12",
+    "name": "杯のナイト",
+    "nameEn": "Knight of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 12,
+    "keywords": {
+      "upright": [
+        "愛の使者",
+        "感情を運ぶ突進",
+        "ロマンスの誘い"
+      ],
+      "reversed": [
+        "感情の暴走",
+        "移り気な遅延"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_13",
+    "name": "杯のクイーン",
+    "nameEn": "Queen of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 13,
+    "keywords": {
+      "upright": [
+        "深い包容の愛情",
+        "共感する感受性",
+        "慈しみの心"
+      ],
+      "reversed": [
+        "感情への依存",
+        "冷ややかな心"
+      ]
+    }
+  },
+  {
+    "id": "minor_cup_14",
+    "name": "杯のキング",
+    "nameEn": "King of Cups",
+    "arcana": "minor",
+    "suit": "cup",
+    "number": 14,
+    "keywords": {
+      "upright": [
+        "感情を統べる成熟",
+        "愛の熟達",
+        "心の支配力"
+      ],
+      "reversed": [
+        "感情の専横",
+        "頑なな冷淡"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_01",
+    "name": "剣のエース",
+    "nameEn": "Ace of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 1,
+    "keywords": {
+      "upright": [
+        "思考の閃き",
+        "真実への一撃",
+        "決断の好機"
+      ],
+      "reversed": [
+        "空を切る論理",
+        "判断の遅れ"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_02",
+    "name": "剣の2",
+    "nameEn": "Two of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 2,
+    "keywords": {
+      "upright": [
+        "思考の均衡",
+        "板挟みの選択",
+        "冷静な保留"
+      ],
+      "reversed": [
+        "決断の停滞",
+        "優柔不断な迷い"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_03",
+    "name": "剣の3",
+    "nameEn": "Three of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 3,
+    "keywords": {
+      "upright": [
+        "痛みを伴う真実",
+        "断ち切る闘争",
+        "心を貫く展開"
+      ],
+      "reversed": [
+        "傷の回復",
+        "対立の和解"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_04",
+    "name": "剣の4",
+    "nameEn": "Four of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 4,
+    "keywords": {
+      "upright": [
+        "思考の休息",
+        "静養の安定",
+        "戦略の充電"
+      ],
+      "reversed": [
+        "休息からの停滞",
+        "思考の倦怠"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_05",
+    "name": "剣の5",
+    "nameEn": "Five of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 5,
+    "keywords": {
+      "upright": [
+        "勝敗を分かつ闘争",
+        "冷徹な喪失",
+        "遺恨"
+      ],
+      "reversed": [
+        "諍いからの回復",
+        "関係の修復"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_06",
+    "name": "剣の6",
+    "nameEn": "Six of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 6,
+    "keywords": {
+      "upright": [
+        "困難を離れる調和",
+        "静かな移行",
+        "過去との追憶"
+      ],
+      "reversed": [
+        "未練による停滞",
+        "離れられぬ執着"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_07",
+    "name": "剣の7",
+    "nameEn": "Seven of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 7,
+    "keywords": {
+      "upright": [
+        "策略の模索",
+        "抜け目ない立ち回り",
+        "単独での戦術"
+      ],
+      "reversed": [
+        "策略の露見",
+        "計画の挫折"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_08",
+    "name": "剣の8",
+    "nameEn": "Eight of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 8,
+    "keywords": {
+      "upright": [
+        "思考による束縛",
+        "身動きの取れぬ力量",
+        "自縄自縛"
+      ],
+      "reversed": [
+        "束縛からの解放",
+        "思考の浪費"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_09",
+    "name": "剣の9",
+    "nameEn": "Nine of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 9,
+    "keywords": {
+      "upright": [
+        "思い悩む重圧",
+        "不安の成熟",
+        "眠れぬ闘争心"
+      ],
+      "reversed": [
+        "悪夢からの目覚め",
+        "不安の枯渇"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_10",
+    "name": "剣の10",
+    "nameEn": "Ten of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 10,
+    "keywords": {
+      "upright": [
+        "闘争の終局",
+        "過剰な痛手",
+        "完全な敗北"
+      ],
+      "reversed": [
+        "再起への崩壊回避",
+        "傷を負う重荷"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_11",
+    "name": "剣のペイジ",
+    "nameEn": "Page of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 11,
+    "keywords": {
+      "upright": [
+        "理論の兆し",
+        "鋭い学び",
+        "警戒する知性"
+      ],
+      "reversed": [
+        "未熟な弁舌",
+        "軽率な言葉"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_12",
+    "name": "剣のナイト",
+    "nameEn": "Knight of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 12,
+    "keywords": {
+      "upright": [
+        "思考を貫く突進",
+        "闘争の使者",
+        "迅速な決断力"
+      ],
+      "reversed": [
+        "性急な暴走",
+        "強引さの遅延"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_13",
+    "name": "剣のクイーン",
+    "nameEn": "Queen of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 13,
+    "keywords": {
+      "upright": [
+        "鋭敏な包容力",
+        "冷静な感受性",
+        "明晰な洞察"
+      ],
+      "reversed": [
+        "批判への依存",
+        "冷淡な突き放し"
+      ]
+    }
+  },
+  {
+    "id": "minor_sword_14",
+    "name": "剣のキング",
+    "nameEn": "King of Swords",
+    "arcana": "minor",
+    "suit": "sword",
+    "number": 14,
+    "keywords": {
+      "upright": [
+        "論理を統べる支配",
+        "思考の熟達",
+        "厳格な判断力"
+      ],
+      "reversed": [
+        "独断的な専横",
+        "頑なな硬直"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_01",
+    "name": "金貨のエース",
+    "nameEn": "Ace of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 1,
+    "keywords": {
+      "upright": [
+        "実りの種",
+        "物質的な好機",
+        "着実な始まり"
+      ],
+      "reversed": [
+        "実らぬ投資",
+        "遅れる利益"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_02",
+    "name": "金貨の2",
+    "nameEn": "Two of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 2,
+    "keywords": {
+      "upright": [
+        "収支の均衡",
+        "選択を要する采配",
+        "器用な両立"
+      ],
+      "reversed": [
+        "資金繰りの停滞",
+        "決めかねる算段"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_03",
+    "name": "金貨の3",
+    "nameEn": "Three of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 3,
+    "keywords": {
+      "upright": [
+        "協働による展開",
+        "技能の共有",
+        "実務の連携"
+      ],
+      "reversed": [
+        "仕事の不和",
+        "計画の遅延"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_04",
+    "name": "金貨の4",
+    "nameEn": "Four of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 4,
+    "keywords": {
+      "upright": [
+        "資産の安定",
+        "堅実な休息",
+        "守りの基盤"
+      ],
+      "reversed": [
+        "執着による停滞",
+        "資産への倦怠"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_05",
+    "name": "金貨の5",
+    "nameEn": "Five of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 5,
+    "keywords": {
+      "upright": [
+        "困窮の闘い",
+        "物質的な喪失",
+        "孤立した苦境"
+      ],
+      "reversed": [
+        "苦境からの回復",
+        "助け合う和解"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_06",
+    "name": "金貨の6",
+    "nameEn": "Six of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 6,
+    "keywords": {
+      "upright": [
+        "分かち合う調和",
+        "施しの追憶",
+        "公平な配分"
+      ],
+      "reversed": [
+        "依存による執着",
+        "施しの停滞"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_07",
+    "name": "金貨の7",
+    "nameEn": "Seven of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 7,
+    "keywords": {
+      "upright": [
+        "実りを待つ模索",
+        "投資の策略",
+        "忍耐強い見極め"
+      ],
+      "reversed": [
+        "成果の露見",
+        "焦りによる挫折"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_08",
+    "name": "金貨の8",
+    "nameEn": "Eight of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 8,
+    "keywords": {
+      "upright": [
+        "技能を磨く力量",
+        "仕事への束縛",
+        "職人的な鍛錬"
+      ],
+      "reversed": [
+        "労力からの解放",
+        "時間の浪費"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_09",
+    "name": "金貨の9",
+    "nameEn": "Nine of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 9,
+    "keywords": {
+      "upright": [
+        "豊かな成熟",
+        "独立した果実",
+        "重圧の中の余裕"
+      ],
+      "reversed": [
+        "孤独な悪夢",
+        "資産の枯渇"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_10",
+    "name": "金貨の10",
+    "nameEn": "Ten of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 10,
+    "keywords": {
+      "upright": [
+        "財産の完成",
+        "一族の繁栄",
+        "過剰な蓄積"
+      ],
+      "reversed": [
+        "継承の崩壊",
+        "資産という重荷"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_11",
+    "name": "金貨のペイジ",
+    "nameEn": "Page of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 11,
+    "keywords": {
+      "upright": [
+        "実利の兆し",
+        "勤勉な学び",
+        "堅実な芽生え"
+      ],
+      "reversed": [
+        "未熟な浪費",
+        "軽率な投資"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_12",
+    "name": "金貨のナイト",
+    "nameEn": "Knight of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 12,
+    "keywords": {
+      "upright": [
+        "実務の使者",
+        "着実な突進",
+        "職務への邁進"
+      ],
+      "reversed": [
+        "性急な暴走",
+        "計画の遅延"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_13",
+    "name": "金貨のクイーン",
+    "nameEn": "Queen of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 13,
+    "keywords": {
+      "upright": [
+        "豊かな包容力",
+        "実利的な感受性",
+        "生活の充実"
+      ],
+      "reversed": [
+        "物への依存",
+        "冷淡な打算"
+      ]
+    }
+  },
+  {
+    "id": "minor_pentacle_14",
+    "name": "金貨のキング",
+    "nameEn": "King of Pentacles",
+    "arcana": "minor",
+    "suit": "pentacle",
+    "number": 14,
+    "keywords": {
+      "upright": [
+        "財を統べる支配力",
+        "実利の熟達",
+        "盤石な統率"
+      ],
+      "reversed": [
+        "専横な独占",
+        "頑なな硬直"
+      ]
+    }
+  }
+]

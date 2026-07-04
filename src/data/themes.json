@@ -1,0 +1,7 @@
+[
+  { "id": "general",  "name": "総合運", "label": "今日という日の輪郭",   "color": "#7b6ca8" },
+  { "id": "love",     "name": "恋愛運", "label": "その想いの行方",       "color": "#8e1f3f" },
+  { "id": "work",     "name": "仕事運", "label": "為すべき業の吉凶",     "color": "#2f5d78" },
+  { "id": "money",    "name": "金運",   "label": "富の流れと澱み",       "color": "#a8892f" },
+  { "id": "relation", "name": "対人運", "label": "人の縁が結ぶ影",       "color": "#4a7a5a" }
+]
