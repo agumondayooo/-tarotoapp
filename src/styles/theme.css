@@ -15,3 +15,389 @@ body {
   line-height: 1.8;
 }
 #app { min-height: 100%; display: flex; flex-direction: column; }
+
+/* ------------------------------------------------------------------ */
+/* 共通                                                                */
+/* ------------------------------------------------------------------ */
+
+.view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* フォーカスリングは常に見える状態を保つ(アクセシビリティ要件)。 */
+:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 2px;
+}
+
+button {
+  font-family: var(--font-serif);
+  color: var(--c-text);
+  background: transparent;
+  cursor: pointer;
+}
+
+/* カード表/裏のSVG共通サイズ。モバイルファーストで画面幅70vw、最大280pxに制限する。 */
+.view svg {
+  max-width: min(70vw, 280px);
+  width: 100%;
+  height: auto;
+}
+
+/* ボタン共通: 深紅ボーダー+ホバーでゴールド発光 */
+.btn-ritual,
+.btn-again,
+.theme-card,
+.share-link {
+  display: inline-block;
+  border: 1.5px solid var(--c-blood);
+  border-radius: 4px;
+  padding: 0.85rem 1.75rem;
+  background: rgba(110, 13, 37, 0.12);
+  color: var(--c-text);
+  font-family: var(--font-display), var(--font-serif);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.btn-ritual:hover,
+.btn-again:hover,
+.theme-card:hover,
+.share-link:hover,
+.btn-ritual:focus-visible,
+.btn-again:focus-visible,
+.theme-card:focus-visible,
+.share-link:focus-visible {
+  border-color: var(--c-gold);
+  box-shadow: 0 0 12px var(--c-gold);
+}
+
+.btn-ritual:active,
+.btn-again:active,
+.theme-card:active {
+  transform: translateY(1px);
+}
+
+/* ------------------------------------------------------------------ */
+/* トップ画面                                                          */
+/* ------------------------------------------------------------------ */
+
+.view-top {
+  justify-content: flex-end;
+  padding-bottom: 3rem;
+  min-height: 100vh;
+  /* ロウソクの揺らぎ: 画面下部の光だまり2つ */
+  background-image:
+    radial-gradient(circle at 25% 100%, rgba(168, 137, 47, 0.35), transparent 45%),
+    radial-gradient(circle at 75% 100%, rgba(110, 13, 37, 0.35), transparent 45%);
+  background-repeat: no-repeat;
+  animation: candle-flicker 4s ease-in-out infinite alternate;
+}
+
+@keyframes candle-flicker {
+  0% { opacity: 0.75; }
+  50% { opacity: 1; }
+  100% { opacity: 0.85; }
+}
+
+.magic-circle {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80vw, 360px);
+  max-width: none;
+  color: var(--c-gold);
+  opacity: 0.55;
+  animation: magic-circle-spin 60s linear infinite;
+}
+
+@keyframes magic-circle-spin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.view-top__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.view-top h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  letter-spacing: 0.15em;
+  color: var(--c-text);
+  text-shadow:
+    0 0 8px var(--c-blood),
+    0 0 18px rgba(110, 13, 37, 0.8),
+    0 0 30px rgba(168, 137, 47, 0.4);
+}
+
+.view-top .subtitle {
+  font-family: var(--font-display);
+  letter-spacing: 0.3em;
+  font-size: 0.8rem;
+  color: var(--c-gold);
+  text-transform: uppercase;
+}
+
+.view-top .catchphrase {
+  font-size: 0.95rem;
+  color: var(--c-text);
+  opacity: 0.85;
+  max-width: 24rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* テーマ選択画面                                                      */
+/* ------------------------------------------------------------------ */
+
+.view-themes h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.theme-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.theme-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-color: var(--theme-color, var(--c-blood));
+}
+
+.theme-card:hover,
+.theme-card:focus-visible {
+  border-color: var(--c-gold);
+}
+
+.theme-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.theme-label {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* ------------------------------------------------------------------ */
+/* 抽選画面(シャッフル演出)                                            */
+/* ------------------------------------------------------------------ */
+
+.draw-message {
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.shuffle-stage {
+  position: relative;
+  width: min(70vw, 280px);
+  height: calc(min(70vw, 280px) * 1.7);
+  margin: 0 auto;
+}
+
+.shuffle-stage .card-back {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.shuffle-card--1 {
+  animation: shuffle-drift-1 2s ease-in-out infinite;
+}
+
+.shuffle-card--2 {
+  animation: shuffle-drift-2 2s ease-in-out infinite;
+}
+
+@keyframes shuffle-drift-1 {
+  0%, 100% { transform: translate(-14px, 0) rotate(-6deg); }
+  50% { transform: translate(-6px, -8px) rotate(-2deg); }
+}
+
+@keyframes shuffle-drift-2 {
+  0%, 100% { transform: translate(14px, 0) rotate(6deg); }
+  50% { transform: translate(6px, -8px) rotate(2deg); }
+}
+
+/* カードフリップ: 3枚目が表になろうとする演出 */
+.card-flip {
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  animation: card-flip-spin 2s ease-in-out infinite;
+}
+
+@keyframes card-flip-spin {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+}
+
+.view-draw--already .draw-message {
+  opacity: 0.85;
+}
+
+/* すでに`draw.ts`側でprefers-reduced-motion判定を行いこのクラスを付与している画面については
+   二重に止める必要はないが、念のためアニメーションを止めておく。 */
+.view-draw.reduced-motion .shuffle-card,
+.view-draw.reduced-motion .card-flip {
+  animation: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* 結果画面                                                            */
+/* ------------------------------------------------------------------ */
+
+.view-result {
+  animation: result-fade-in 0.8s ease-out, result-glitch 0.8s steps(1, end) 1;
+}
+
+@keyframes result-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 一瞬のグリッチ: clip-pathを数フレームずらして1回だけ実行する */
+@keyframes result-glitch {
+  0% { clip-path: inset(0 0 0 0); }
+  8% { clip-path: inset(10% 0 60% 0); }
+  16% { clip-path: inset(60% 0 5% 0); }
+  24% { clip-path: inset(30% 0 40% 0); }
+  32% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.card-frame {
+  transition: transform 0.6s;
+}
+
+.card-frame.reversed svg {
+  transform: rotate(180deg);
+}
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.card-name-en {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--c-gold);
+  opacity: 0.8;
+}
+
+.orientation-label {
+  font-size: 0.9rem;
+  color: var(--c-blood);
+  letter-spacing: 0.1em;
+}
+
+.view-result .theme-name {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.fortune-text {
+  max-width: 28rem;
+  font-size: 1rem;
+}
+
+.share-link {
+  border-color: var(--c-gold);
+}
+
+/* ------------------------------------------------------------------ */
+/* BGMトグル                                                           */
+/* ------------------------------------------------------------------ */
+
+.bgm-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1.5px solid var(--c-blood);
+  border-radius: 50%;
+  background: rgba(13, 7, 19, 0.7);
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.bgm-toggle:hover,
+.bgm-toggle:focus-visible {
+  border-color: var(--c-gold);
+  box-shadow: 0 0 12px var(--c-gold);
+}
+
+.bgm-toggle:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------------ */
+/* Breakpoint: 768px以上(PC)                                          */
+/* ------------------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  .view {
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+
+  .view-top h1 {
+    font-size: 3.5rem;
+  }
+
+  .theme-list {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 40rem;
+  }
+
+  .fortune-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* prefers-reduced-motion: 全アニメーション・トランジションを停止        */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
