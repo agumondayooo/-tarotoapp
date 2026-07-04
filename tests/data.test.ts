@@ -3,6 +3,7 @@ import cards from "../src/data/cards.json";
 import themes from "../src/data/themes.json";
 import fortunesMajor from "../src/data/fortunes-major.json";
 import fortunesMinor from "../src/data/fortunes-minor.json";
+import { getFortune, allFortunes } from "../src/scripts/fortunes";
 import type { Card, Theme, Fortune } from "../src/scripts/types";
 
 const cardList = cards as Card[];
@@ -113,5 +114,23 @@ describe("fortunes-minor.json", () => {
       const texts = minorFortunes.filter(f => f.theme === t).flatMap(f => [f.upright, f.reversed]);
       expect(new Set(texts).size).toBe(texts.length);
     }
+  });
+});
+
+describe("fortunes.ts", () => {
+  it("全390エントリ(780本)が揃っている", () => {
+    expect(allFortunes().length).toBe(390);
+  });
+  it("全カード×全テーマで取得できる", () => {
+    for (const c of cardList) {
+      for (const t of THEMES) {
+        const f = getFortune(c.id, t);
+        expect(f.upright.length).toBeGreaterThan(0);
+        expect(f.reversed.length).toBeGreaterThan(0);
+      }
+    }
+  });
+  it("存在しない組み合わせは throw する", () => {
+    expect(() => getFortune("major_99", "love")).toThrow();
   });
 });
