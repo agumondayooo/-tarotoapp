@@ -1,7 +1,7 @@
 import type { View } from "../scripts/router";
 import themesData from "../data/themes.json";
 import cardsData from "../data/cards.json";
-import type { Card, Theme, ThemeId } from "../scripts/types";
+import type { Card, Theme } from "../scripts/types";
 import { getOrDraw } from "../scripts/draw";
 import { getFortune } from "../scripts/fortunes";
 import { renderCardSvg } from "../scripts/card-svg";
@@ -18,14 +18,14 @@ export const render: View = (container, params, ctx) => {
   }
 
   // getOrDraw はキャッシュ済みなら同一結果を返す(冪等)。
-  const { result } = getOrDraw(theme.id as ThemeId, cards, localStorage);
+  const { result } = getOrDraw(theme.id, cards, localStorage);
   const card = cards.find(c => c.id === result.cardId);
   if (!card) {
     ctx.navigate("/themes");
     return;
   }
 
-  const fortune = getFortune(card.id, theme.id as ThemeId);
+  const fortune = getFortune(card.id, theme.id);
   const reversed = result.orientation === "reversed";
   const orientationLabel = reversed ? "逆位置" : "正位置";
   const fortuneText = reversed ? fortune.reversed : fortune.upright;

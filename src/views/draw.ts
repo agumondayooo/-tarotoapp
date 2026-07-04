@@ -1,7 +1,7 @@
-import type { View } from "../scripts/router";
+import type { AppContext, View } from "../scripts/router";
 import themesData from "../data/themes.json";
 import cardsData from "../data/cards.json";
-import type { Card, Theme, ThemeId } from "../scripts/types";
+import type { Card, Theme } from "../scripts/types";
 import { getOrDraw } from "../scripts/draw";
 import { renderCardBack } from "../scripts/card-svg";
 
@@ -15,6 +15,14 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+// setTimeoutでの遷移予約。ユーザーがタイマー完了前に別の画面へ移動した場合(ブラウザバック等で
+// hashchangeが発火した場合)、router側にunmountフックが無いためタイマー自身をキャンセルする。
+// これをしないと、離脱後に古いthemeIdの/resultへ強制遷移してしまいバックボタンが機能しなくなる。
+function navigateAfter(ctx: AppContext, path: string, delayMs: number): void {
+  const timerId = setTimeout(() => ctx.navigate(path), delayMs);
+  window.addEventListener("hashchange", () => clearTimeout(timerId), { once: true });
+}
+
 export const render: View = (container, params, ctx) => {
   const theme = themes.find(t => t.id === params.themeId);
   if (!theme) {
@@ -22,7 +30,7 @@ export const render: View = (container, params, ctx) => {
     return;
   }
 
-  const { alreadyDrawn } = getOrDraw(theme.id as ThemeId, cards, localStorage);
+  const { alreadyDrawn } = getOrDraw(theme.id, cards, localStorage);
   const reduced = prefersReducedMotion();
 
   if (alreadyDrawn) {
@@ -34,7 +42,7 @@ export const render: View = (container, params, ctx) => {
     if (reduced) {
       ctx.navigate("/result/" + theme.id);
     } else {
-      setTimeout(() => ctx.navigate("/result/" + theme.id), ALREADY_DRAWN_DELAY_MS);
+      navigateAfter(ctx, "/result/" + theme.id, ALREADY_DRAWN_DELAY_MS);
     }
     return;
   }
@@ -55,6 +63,6 @@ export const render: View = (container, params, ctx) => {
   if (reduced) {
     ctx.navigate("/result/" + theme.id);
   } else {
-    setTimeout(() => ctx.navigate("/result/" + theme.id), SHUFFLE_DELAY_MS);
+    navigateAfter(ctx, "/result/" + theme.id, SHUFFLE_DELAY_MS);
   }
 };
