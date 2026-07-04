@@ -1,0 +1,17 @@
+:root {
+  --c-bg: #0d0713;
+  --c-blood: #6e0d25;
+  --c-gold: #a8892f;
+  --c-text: #e8e3da;
+  --font-serif: "Noto Serif JP", serif;
+  --font-display: "Cinzel", serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-serif);
+  line-height: 1.8;
+}
+#app { min-height: 100%; display: flex; flex-direction: column; }
