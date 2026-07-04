@@ -2,11 +2,13 @@ import { describe, it, expect } from "vitest";
 import cards from "../src/data/cards.json";
 import themes from "../src/data/themes.json";
 import fortunesMajor from "../src/data/fortunes-major.json";
+import fortunesMinor from "../src/data/fortunes-minor.json";
 import type { Card, Theme, Fortune } from "../src/scripts/types";
 
 const cardList = cards as Card[];
 const themeList = themes as Theme[];
 const majorFortunes = fortunesMajor as Fortune[];
+const minorFortunes = fortunesMinor as Fortune[];
 const THEMES = ["general", "love", "work", "money", "relation"] as const;
 
 describe("cards.json", () => {
@@ -81,6 +83,35 @@ describe("fortunes-major.json", () => {
         expect(text.length).toBeLessThanOrEqual(180);
         expect(text).not.toMatch(/です|ます/);
       }
+    }
+  });
+});
+
+describe("fortunes-minor.json", () => {
+  it("小アルカナ56枚×5テーマ=280エントリある", () => {
+    expect(minorFortunes.length).toBe(280);
+  });
+  it("全組み合わせを網羅し重複がない", () => {
+    const keys = new Set(minorFortunes.map(f => `${f.cardId}:${f.theme}`));
+    expect(keys.size).toBe(280);
+    const minorIds = (cards as Card[]).filter(c => c.arcana === "minor").map(c => c.id);
+    for (const id of minorIds) {
+      for (const t of THEMES) expect(keys.has(`${id}:${t}`)).toBe(true);
+    }
+  });
+  it("本文は60〜180字で、です・ます調を含まない", () => {
+    for (const f of minorFortunes) {
+      for (const text of [f.upright, f.reversed]) {
+        expect(text.length).toBeGreaterThanOrEqual(60);
+        expect(text.length).toBeLessThanOrEqual(180);
+        expect(text).not.toMatch(/です|ます/);
+      }
+    }
+  });
+  it("同一テーマ内で全文一致の重複がない", () => {
+    for (const t of THEMES) {
+      const texts = minorFortunes.filter(f => f.theme === t).flatMap(f => [f.upright, f.reversed]);
+      expect(new Set(texts).size).toBe(texts.length);
     }
   });
 });
