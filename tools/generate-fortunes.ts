@@ -21,8 +21,14 @@ type Tpl = (kw1: string, kw2: string, suitWord: string, cardName: string) => str
 // だが一部のカード(4・5系の "対立や苦境からの回復" 等)は reversed の keywords 自体が両方とも
 // 好転・和解を意味する語で、その前提が成り立たない。該当カードはこの専用文型に差し替える。
 const REDEMPTIVE_WORD = /回復|解放|修復|克服|好転|前進|成長|癒し|再生|学び|和解|昇華|浄化|突破|達成|成功|覚醒|開花|治癒|救済|清算|決着|緩和|軽減|安堵|安定|融和|融合|調和|再会|再興|復調|復活|沈静/;
+// minor_sword_09 の reversed keywords ["悪夢からの目覚め","不安の枯渇"] は上記正規表現に
+// マッチしない語("目覚め"、"枯渇"は本来ネガティブな語に付くことが多い接尾辞だが、ここでは
+// "不安が枯渇する"=不安が尽きる、という安堵の意味で使われている)が、両方とも安堵・回復の
+// 概念であるため、正規表現をこれ以上広げて誤検出を増やすより、個別に例外指定する方が安全。
+const REDEMPTIVE_REVERSAL_OVERRIDE = new Set(["minor_sword_09"]);
 const isRedemptiveReversal = (card: Card): boolean =>
-  card.keywords.reversed.length >= 2 && card.keywords.reversed.every(k => REDEMPTIVE_WORD.test(k));
+  REDEMPTIVE_REVERSAL_OVERRIDE.has(card.id) ||
+  (card.keywords.reversed.length >= 2 && card.keywords.reversed.every(k => REDEMPTIVE_WORD.test(k)));
 
 const REDEEMED_REVERSED_TPL: Record<ThemeId, Tpl> = {
   general: (a, b, s, n) =>
