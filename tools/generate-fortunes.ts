@@ -17,6 +17,26 @@ const SUIT_INDEX: Record<string, number> = { wand: 0, cup: 1, sword: 2, pentacle
 // kw1/kw2: keywords配列の先頭2語, suitWord: スート領域語, cardName: カード名
 type Tpl = (kw1: string, kw2: string, suitWord: string, cardName: string) => string;
 
+// 通常の reversed 文型は「kw1が失われる/kw2に引きずり込まれる」= kw1もkw2も悪い状態、という前提で書かれている。
+// だが一部のカード(4・5系の "対立や苦境からの回復" 等)は reversed の keywords 自体が両方とも
+// 好転・和解を意味する語で、その前提が成り立たない。該当カードはこの専用文型に差し替える。
+const REDEMPTIVE_WORD = /回復|解放|修復|克服|好転|前進|成長|癒し|再生|学び|和解|昇華|浄化|突破|達成|成功|覚醒|開花|治癒|救済|清算|決着|緩和|軽減|安堵|安定|融和|融合|調和|再会|再興|復調|復活|沈静/;
+const isRedemptiveReversal = (card: Card): boolean =>
+  card.keywords.reversed.length >= 2 && card.keywords.reversed.every(k => REDEMPTIVE_WORD.test(k));
+
+const REDEEMED_REVERSED_TPL: Record<ThemeId, Tpl> = {
+  general: (a, b, s, n) =>
+    `${n}が裏側から示すのは、${a}という兆しだ。すぐには訪れずとも、${s}を辛抱強く保てば、${b}という形であなたのもとに実を結ぶだろう。焦りだけは、今は捨てておく方がいい。`,
+  love: (a, b, s, n) =>
+    `恋における${n}の裏側が示すのは、${a}という兆しだ。${s}を辛抱強く保てば、${b}という形であなたと相手の間に戻ってくるだろう。今はまだ、気を緩めない方がいい。`,
+  work: (a, b, s, n) =>
+    `仕事における${n}の裏側が示すのは、${a}という兆しだ。${s}を辛抱強く保てば、${b}という形であなたの評価に戻ってくるだろう。油断だけは、まだ禁物だ。`,
+  money: (a, b, s, n) =>
+    `金銭における${n}の裏側が示すのは、${a}という兆しだ。${s}を辛抱強く保てば、${b}という形であなたの懐に戻ってくるだろう。油断だけは、まだ禁物だ。`,
+  relation: (a, b, s, n) =>
+    `人間関係における${n}の裏側が示すのは、${a}という兆しだ。${s}を辛抱強く保てば、${b}という形であなたと誰かの間に戻ってくるだろう。油断だけは、まだ禁物だ。`,
+};
+
 const TEMPLATES: Record<ThemeId, { upright: Tpl[]; reversed: Tpl[] }> = {
   general: {
     upright: [
@@ -159,7 +179,7 @@ for (const card of cards.filter(c => c.arcana === "minor")) {
       theme,
       upright: pick(TEMPLATES[theme].upright)(
         card.keywords.upright[0], card.keywords.upright[1], SUIT_WORD[card.suit!], card.name),
-      reversed: pick(TEMPLATES[theme].reversed)(
+      reversed: (isRedemptiveReversal(card) ? REDEEMED_REVERSED_TPL[theme] : pick(TEMPLATES[theme].reversed))(
         card.keywords.reversed[0], card.keywords.reversed[1], SUIT_WORD[card.suit!], card.name),
     });
   }
