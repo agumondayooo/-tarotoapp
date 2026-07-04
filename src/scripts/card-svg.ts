@@ -34,9 +34,9 @@ const ROMAN = [
   "XXI",
 ];
 
-function frame(inner: string, label: string, numeral: string | null): string {
-  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${label}">
-  <rect width="${W}" height="${H}" rx="10" fill="${BG}"/>
+// 背景・二重線枠・四隅の菱形紋(共通フレームの土台)。カード表裏どちらも同じ土台を使う。
+function borderAndCorners(): string {
+  return `<rect width="${W}" height="${H}" rx="10" fill="${BG}"/>
   <rect x="6" y="6" width="${W - 12}" height="${H - 12}" rx="7" fill="none" stroke="${GOLD}" stroke-width="1.5"/>
   <rect x="12" y="12" width="${W - 24}" height="${H - 24}" rx="5" fill="none" stroke="${GOLD}" stroke-width="0.5" opacity="0.6"/>
   ${[
@@ -49,10 +49,26 @@ function frame(inner: string, label: string, numeral: string | null): string {
       ([x, y]) =>
         `<path d="M ${x} ${y - 5} L ${x + 5} ${y} L ${x} ${y + 5} L ${x - 5} ${y} Z" fill="${GOLD}" opacity="0.8"/>`
     )
-    .join("")}
+    .join("")}`;
+}
+
+interface FrameOptions {
+  inner: string;
+  ariaLabel: string;
+  /** 大アルカナのローマ数字(上部)。省略時は表示しない。 */
+  numeral?: string | null;
+  /** 下部に表示するカード名テキスト。省略時(裏面)は表示せず、中央シンボルもより中心寄りに配置する。 */
+  nameText?: string | null;
+}
+
+// 共通フレーム: 表(renderCardSvg)・裏(renderCardBack)の両方から呼ばれる。
+function frame({ inner, ariaLabel, numeral = null, nameText = null }: FrameOptions): string {
+  const centerY = H / 2 - (nameText ? 10 : 0);
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${ariaLabel}">
+  ${borderAndCorners()}
   ${numeral ? `<text x="${W / 2}" y="34" text-anchor="middle" fill="${GOLD}" font-size="14" font-family="Cinzel, serif">${numeral}</text>` : ""}
-  <g transform="translate(${W / 2}, ${H / 2 - 10})">${inner}</g>
-  <text x="${W / 2}" y="${H - 24}" text-anchor="middle" fill="${TEXT}" font-size="13" font-family="'Noto Serif JP', serif">${label}</text>
+  <g transform="translate(${W / 2}, ${centerY})">${inner}</g>
+  ${nameText ? `<text x="${W / 2}" y="${H - 24}" text-anchor="middle" fill="${TEXT}" font-size="13" font-family="'Noto Serif JP', serif">${nameText}</text>` : ""}
 </svg>`;
 }
 
@@ -153,7 +169,7 @@ function minorSymbol(card: Card): string {
 export function renderCardSvg(card: Card): string {
   const inner = card.arcana === "major" ? majorSymbol(card.number) : minorSymbol(card);
   const numeral = card.arcana === "major" ? ROMAN[card.number] : null;
-  return frame(inner, card.name, numeral);
+  return frame({ inner, ariaLabel: card.name, numeral, nameText: card.name });
 }
 
 export function renderCardBack(): string {
@@ -168,21 +184,5 @@ export function renderCardBack(): string {
     <ellipse cx="0" cy="0" rx="9" ry="5" fill="none" stroke="${TEXT}" stroke-width="1.3"/>
     <circle cx="0" cy="0" r="2.4" fill="${TEXT}"/>
   `;
-  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="カード裏面">
-  <rect width="${W}" height="${H}" rx="10" fill="${BG}"/>
-  <rect x="6" y="6" width="${W - 12}" height="${H - 12}" rx="7" fill="none" stroke="${GOLD}" stroke-width="1.5"/>
-  <rect x="12" y="12" width="${W - 24}" height="${H - 24}" rx="5" fill="none" stroke="${GOLD}" stroke-width="0.5" opacity="0.6"/>
-  ${[
-    [16, 16],
-    [W - 16, 16],
-    [16, H - 16],
-    [W - 16, H - 16],
-  ]
-    .map(
-      ([x, y]) =>
-        `<path d="M ${x} ${y - 5} L ${x + 5} ${y} L ${x} ${y + 5} L ${x - 5} ${y} Z" fill="${GOLD}" opacity="0.8"/>`
-    )
-    .join("")}
-  <g transform="translate(${W / 2}, ${H / 2})">${inner}</g>
-</svg>`;
+  return frame({ inner, ariaLabel: "カード裏面" });
 }
