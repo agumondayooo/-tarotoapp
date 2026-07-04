@@ -1,10 +1,13 @@
 import { describe, it, expect } from "vitest";
 import cards from "../src/data/cards.json";
 import themes from "../src/data/themes.json";
-import type { Card, Theme } from "../src/scripts/types";
+import fortunesMajor from "../src/data/fortunes-major.json";
+import type { Card, Theme, Fortune } from "../src/scripts/types";
 
 const cardList = cards as Card[];
 const themeList = themes as Theme[];
+const majorFortunes = fortunesMajor as Fortune[];
+const THEMES = ["general", "love", "work", "money", "relation"] as const;
 
 describe("cards.json", () => {
   it("78枚ある", () => {
@@ -54,6 +57,30 @@ describe("themes.json", () => {
       expect(t.name.length).toBeGreaterThan(0);
       expect(t.label.length).toBeGreaterThan(0);
       expect(t.color).toMatch(/^#[0-9a-f]{6}$/i);
+    }
+  });
+});
+
+describe("fortunes-major.json", () => {
+  it("大アルカナ22枚×5テーマ=110エントリある", () => {
+    expect(majorFortunes.length).toBe(110);
+  });
+  it("全組み合わせを網羅し重複がない", () => {
+    const keys = new Set(majorFortunes.map(f => `${f.cardId}:${f.theme}`));
+    expect(keys.size).toBe(110);
+    for (let n = 0; n < 22; n++) {
+      for (const t of THEMES) {
+        expect(keys.has(`major_${String(n).padStart(2, "0")}:${t}`)).toBe(true);
+      }
+    }
+  });
+  it("本文は60〜180字で、です・ます調を含まない", () => {
+    for (const f of majorFortunes) {
+      for (const text of [f.upright, f.reversed]) {
+        expect(text.length).toBeGreaterThanOrEqual(60);
+        expect(text.length).toBeLessThanOrEqual(180);
+        expect(text).not.toMatch(/です|ます/);
+      }
     }
   });
 });
