@@ -6,7 +6,7 @@
 
 **Architecture:** Vite + Vanilla TypeScript の単一ページ静的サイト。URL hash で4画面(トップ/テーマ選択/抽選演出/結果)を切替。抽選は「YYYYMMDD+テーマID」をFNV-1aハッシュ→mulberry32 PRNGで決定し、localStorageに当日結果をキャッシュ。カードは共通SVGフレーム+シンボル合成で描画。占い文は大アルカナ220本を個別執筆、小アルカナ560本をキーワード×文型合成で事前生成しJSONとしてコミット。
 
-**Tech Stack:** Vite 6, TypeScript 5, Vitest 3(jsdom環境), GitHub Actions + actions/deploy-pages。フレームワーク・実行時外部依存なし(Google Fontsのみ)。
+**Tech Stack:** Vite, TypeScript, Vitest(jsdom環境)いずれも最新安定版(実績: Vite 8 / TS 6 / Vitest 4), GitHub Actions + actions/deploy-pages。フレームワーク・実行時外部依存なし(Google Fontsのみ)。
 
 ## Global Constraints
 
