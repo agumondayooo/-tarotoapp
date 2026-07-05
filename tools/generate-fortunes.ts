@@ -30,6 +30,29 @@ const isRedemptiveReversal = (card: Card): boolean =>
   REDEMPTIVE_REVERSAL_OVERRIDE.has(card.id) ||
   (card.keywords.reversed.length >= 2 && card.keywords.reversed.every(k => REDEMPTIVE_WORD.test(k)));
 
+// 通常の upright 文型は「a/bという兆しは好ましいものだ」という前提で、報われる・懐に流れ込む・
+// 絆が届く、といった幸運の追い風として描く。だが一部のカードは upright の keywords 自体が
+// 喪失・敗北・束縛・不安など明確に悪い概念で(逆位置側の "回復" 系ミラーとなるバグ)、その前提が
+// 成り立たない。該当カードはこの専用文型(警句・警戒のトーン)に差し替える。
+const NEGATIVE_UPRIGHT_WORD = /喪失|悲嘆|闘争|闘い|痛み|痛手|断ち切|冷徹|束縛|身動きの取れぬ|重圧|不安|終局|困窮|敗北/;
+const CURSED_UPRIGHT_OVERRIDE = new Set<string>([]);
+const isCursedUpright = (card: Card): boolean =>
+  CURSED_UPRIGHT_OVERRIDE.has(card.id) ||
+  card.keywords.upright.slice(0, 2).every(k => NEGATIVE_UPRIGHT_WORD.test(k));
+
+const CURSED_UPRIGHT_TPL: Record<ThemeId, Tpl> = {
+  general: (a, b, s, n) =>
+    `${n}が示すのは、${a}という影だ。放っておけば、${b}という形であなたに牙を剥くだろう。侮らず、今のうちに身構えておく方がいい。`,
+  love: (a, b, s, n) =>
+    `恋における${n}が示すのは、${a}という影だ。放っておけば、${b}という形であなたと相手の間に忍び寄るだろう。侮らず、今のうちに身構えておく方がいい。`,
+  work: (a, b, s, n) =>
+    `仕事における${n}が示すのは、${a}という影だ。放っておけば、${b}という形であなたの仕事に忍び寄るだろう。侮らず、今のうちに身構えておく方がいい。`,
+  money: (a, b, s, n) =>
+    `金銭における${n}が示すのは、${a}という影だ。放っておけば、${b}という形であなたの懐に忍び寄るだろう。侮らず、今のうちに身構えておく方がいい。`,
+  relation: (a, b, s, n) =>
+    `人間関係における${n}が示すのは、${a}という影だ。放っておけば、${b}という形であなたと誰かの間に忍び寄るだろう。侮らず、今のうちに身構えておく方がいい。`,
+};
+
 const REDEEMED_REVERSED_TPL: Record<ThemeId, Tpl> = {
   general: (a, b, s, n) =>
     `${n}が裏側から示すのは、${a}という兆しだ。すぐには訪れずとも、${s}を辛抱強く保てば、${b}という形であなたのもとに実を結ぶだろう。焦りだけは、今は捨てておく方がいい。`,
@@ -183,7 +206,7 @@ for (const card of cards.filter(c => c.arcana === "minor")) {
     fortunes.push({
       cardId: card.id,
       theme,
-      upright: pick(TEMPLATES[theme].upright)(
+      upright: (isCursedUpright(card) ? CURSED_UPRIGHT_TPL[theme] : pick(TEMPLATES[theme].upright))(
         card.keywords.upright[0], card.keywords.upright[1], SUIT_WORD[card.suit!], card.name),
       reversed: (isRedemptiveReversal(card) ? REDEEMED_REVERSED_TPL[theme] : pick(TEMPLATES[theme].reversed))(
         card.keywords.reversed[0], card.keywords.reversed[1], SUIT_WORD[card.suit!], card.name),
