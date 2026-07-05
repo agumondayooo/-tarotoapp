@@ -30,7 +30,6 @@ body {
   padding: 2rem 1.25rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 /* フォーカスリングは常に見える状態を保つ(アクセシビリティ要件)。 */
@@ -46,8 +45,11 @@ button {
   cursor: pointer;
 }
 
-/* カード表/裏のSVG共通サイズ。モバイルファーストで画面幅70vw、最大280pxに制限する。 */
-.view svg {
+/* カード表/裏のSVG共通サイズ。モバイルファーストで画面幅70vw、最大280pxに制限する。
+   `.magic-circle`はこの対象外(独自サイズを持つ)なので、カードSVGの実際のラッパー
+   (`.card-frame`=結果画面, `.card-back`=抽選画面のシャッフル演出)にのみ限定する。 */
+.card-frame svg,
+.card-back svg {
   max-width: min(70vw, 280px);
   width: 100%;
   height: auto;
@@ -99,7 +101,16 @@ button {
   justify-content: flex-end;
   padding-bottom: 3rem;
   min-height: 100vh;
-  /* ロウソクの揺らぎ: 画面下部の光だまり2つ */
+  overflow: hidden;
+}
+
+/* ロウソクの揺らぎ: 画面下部の光だまり2つ。前景(タイトル・本文・ボタン)とは
+   独立した背景レイヤーとしてopacityをアニメさせ、前景の見た目に影響させない。 */
+.view-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background-image:
     radial-gradient(circle at 25% 100%, rgba(168, 137, 47, 0.35), transparent 45%),
     radial-gradient(circle at 75% 100%, rgba(110, 13, 37, 0.35), transparent 45%);
@@ -190,11 +201,6 @@ button {
   border-color: var(--theme-color, var(--c-blood));
 }
 
-.theme-card:hover,
-.theme-card:focus-visible {
-  border-color: var(--c-gold);
-}
-
 .theme-name {
   font-family: var(--font-display);
   font-size: 1.1rem;
@@ -245,7 +251,10 @@ button {
   50% { transform: translate(6px, -8px) rotate(2deg); }
 }
 
-/* カードフリップ: 3枚目が表になろうとする演出 */
+/* カードフリップ: 3枚目が表になろうとする演出。
+   transitionはtransformプロパティに対して定義しているが、シャッフル演出中は
+   card-flip-spinアニメが同じtransformを常時駆動するため、通常表示中は実質発火しない
+   (将来animationを外して単発トグルにする場合のためのフォールバック)。 */
 .card-flip {
   transform-style: preserve-3d;
   transition: transform 1s;
@@ -291,10 +300,6 @@ button {
   100% { clip-path: inset(0 0 0 0); }
 }
 
-.card-frame {
-  transition: transform 0.6s;
-}
-
 .card-frame.reversed svg {
   transform: rotate(180deg);
 }
@@ -326,10 +331,6 @@ button {
 .fortune-text {
   max-width: 28rem;
   font-size: 1rem;
-}
-
-.share-link {
-  border-color: var(--c-gold);
 }
 
 /* ------------------------------------------------------------------ */
