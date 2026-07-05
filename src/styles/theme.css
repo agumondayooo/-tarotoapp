@@ -281,23 +281,15 @@ button {
 /* 結果画面                                                            */
 /* ------------------------------------------------------------------ */
 
+/* 結果画面はフェードインのみ。当初は画面全体へのclip-pathグリッチ演出も併用していたが、
+   フェードイン中に画面の大半が帯状に消える「点滅」として知覚され不快だったため撤去した。 */
 .view-result {
-  animation: result-fade-in 0.8s ease-out, result-glitch 0.8s steps(1, end) 1;
+  animation: result-fade-in 0.8s ease-out;
 }
 
 @keyframes result-fade-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* 一瞬のグリッチ: clip-pathを数フレームずらして1回だけ実行する */
-@keyframes result-glitch {
-  0% { clip-path: inset(0 0 0 0); }
-  8% { clip-path: inset(10% 0 60% 0); }
-  16% { clip-path: inset(60% 0 5% 0); }
-  24% { clip-path: inset(30% 0 40% 0); }
-  32% { clip-path: inset(0 0 0 0); }
-  100% { clip-path: inset(0 0 0 0); }
 }
 
 .card-frame.reversed svg {
