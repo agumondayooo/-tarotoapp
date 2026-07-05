@@ -103,12 +103,12 @@ npm test
 
 ## 今後の作業(残作業)
 
-MVP実装は完了しているが、公開前に以下の人手作業が残っている:
+MVP実装・公開は完了している。残っている任意項目:
 
-- **BGM音源の選定**: `src/assets/audio/bgm.mp3` に商用利用可能なフリー音源(不気味・ホラー・ピアノ系)を配置する。DOVA-SYNDROME・甘茶の音楽工房・魔王魂等から選曲し、クレジット表記要否等のライセンス条件を確認すること。未配置の間はBGMトグルボタンが自動的に非活性表示になる(エラーにはならない)。
-- **GitHubリポジトリの作成・Pages有効化**: 本プロジェクトをGitHubリポジトリとしてpushし、Settings > Pages > Source を「GitHub Actions」に設定する(手順は上記「Deployment to GitHub Pages」参照)。
 - **OGP画像の用意**: 要件定義書ではSNSシェア時の `og:image` に静的PNG1枚を使う方針としているが、現時点で画像アセットは未作成のため `index.html` に `og:image` タグは未設定。共有カード風の画像を1枚用意し、`index.html` に `<meta property="og:image" content="...">` を追加する。
 - **独自ドメインの検討**: 現状はGitHub Pages既定ドメイン(`<username>.github.io/<repository-name>/`)を前提としている。独自ドメイン取得は将来の任意対応。
+
+完了済み: BGM音源配置(`src/assets/audio/bgm.mp3`)、GitHubリポジトリ作成・Pages公開。
 
 ## License
 
